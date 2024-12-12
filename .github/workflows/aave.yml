@@ -3,7 +3,7 @@ name: Weekly ZkSync Aave Test
 on:
   schedule:
     # Run every day at 13:35 UTC
-    - cron: '35 13 * * *'
+    - cron: '35 14 * * *'
   workflow_dispatch: # Allows manual triggering
 
 env:
