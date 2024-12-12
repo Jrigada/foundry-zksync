@@ -2,8 +2,8 @@ name: Weekly ZkSync Aave Test
 
 on:
   schedule:
-    # Run every day at 13:35 UTC
-    - cron: '35 14 * * *'
+    # Run every 10 minutes for testing
+    - cron: '*/10 * * * *'
   workflow_dispatch: # Allows manual triggering
 
 env:
@@ -15,6 +15,13 @@ jobs:
     runs-on: ubuntu-22.04-github-hosted-16core
 
     steps:
+      - name: Debug Environment
+        run: |
+          echo "Current time: $(date)"
+          echo "GitHub Event Name: ${{ github.event_name }}"
+          echo "GitHub Event Path: ${{ github.event_path }}"
+          echo "GitHub Workflow: ${{ github.workflow }}"
+          
       - name: Checkout code
         uses: actions/checkout@v4
         with:
